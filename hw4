@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Power Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 60vh;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0);
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Power Calculator</h1>
+    <p>Calculate a number to the power of another number.</p>
+    <input type="number" id="baseNumber" placeholder="Base Number" value="1">
+    <input type="number" id="power" placeholder="Power" value="0">
+    <br><br>
+    <button id="calculateButton">Calculate</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const calculateButton = document.getElementById('calculateButton');
+      const resultElement = document.getElementById('result');
+
+      calculateButton.addEventListener('click', function () {
+        const baseNumber = parseFloat(document.getElementById('baseNumber').value);
+        const power = parseFloat(document.getElementById('power').value);
+        const result = calculatePower(baseNumber, power);
+        resultElement.textContent = `Result: ${result}`;
+      });
+
+      function calculatePower(number = 1, power = 0) {
+        return Math.pow(number, power);
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+  #color-square {
+    width: 150px;
+    height: 150px;
+    background-color: #ccc;
+    position: absolute;
+  }
+  #click-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+</style>
+<title>Color Square</title>
+</head>
+<body>
+<div id="color-square"></div>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+<button id="click-button">Show Color Square</button>
+<script>
+  const colorSquare = document.getElementById("color-square");
+  const clickButton = document.getElementById("click-button");
+
+  function getRandomValue(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+  function showRandomColorSquare() {
+    const randomColor = `rgb(${getRandomValue(256)}, ${getRandomValue(256)}, ${getRandomValue(256)})`;
+    const maxWidth = window.innerWidth - 150;
+    const maxHeight = window.innerHeight - 150;
+    const randomX = getRandomValue(maxWidth);
+    const randomY = getRandomValue(maxHeight);
+
+    colorSquare.style.backgroundColor = randomColor;
+    colorSquare.style.left = `${randomX}px`;
+    colorSquare.style.top = `${randomY}px`;
+    colorSquare.style.display = "block";
+  }
+
+  function myClick() {
+    showRandomColorSquare();
+  }
+
+  clickButton.addEventListener("click", myClick);
+</script>
+</body>
+</html>

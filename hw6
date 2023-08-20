@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>List Manipulation with JavaScript</h2>
+
+    <script>
+        var numbersList = [1, 3, 5];
+        var wordsList = ['I', 'Love', 'JavaScript'];
+
+        var userNumbersList = [];
+        for (var i = 0; i < 10; i++) {
+            var userInput = prompt('Enter a number:');
+            userNumbersList.push(parseFloat(userInput));
+        }
+
+        var userNumbersListWithConditions = [];
+        while (true) {
+            var userInput = prompt('Enter a number between 1 and 100 (or enter -99 to exit):');
+            var userNumber = parseFloat(userInput);
+
+            if (userNumber === -99) {
+                break;
+            }
+
+            if (userNumber >= 1 && userNumber <= 100) {
+                userNumbersListWithConditions.push(userNumber);
+            } else {
+                alert('Number out of range. Skipping...');
+            }
+        }
+
+        var totalReceived = userNumbersListWithConditions.length;
+        var sum = 0;
+        for (var i = 0; i < totalReceived; i++) {
+            sum += userNumbersListWithConditions[i];
+        }
+        var average = sum / totalReceived;
+
+
+        document.write('<p>Numbers list: ' + numbersList.join(', ') + '</p>');
+        document.write('<p>Words list: ' + wordsList.join(', ') + '</p>');
+        document.write('<p>User numbers list: ' + userNumbersList.join(', ') + '</p>');
+        document.write('<p>Filtered user numbers list: ' + userNumbersListWithConditions.join(', ') + '</p>');
+        document.write('<p>Total received numbers: ' + totalReceived + '</p>');
+        document.write('<p>Average of received numbers: ' + average.toFixed(2) + '</p>');
+    </script>
+</body>
+
+</html>

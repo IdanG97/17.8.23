@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Guessing Game</title>
+</head>
+<style>
+    body {
+        font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+</style>
+
+<body>
+    <script>
+        const randomNumber = Math.floor(Math.random() * 100) + 1;
+
+        while (true) {
+            let guess = parseInt(prompt("Guess the number"));
+
+            if (isNaN(guess) || guess < 1 || guess > 100) {
+                continue;
+            }
+            else if (guess < randomNumber) {
+                alert('The number is higher');
+            }
+            else if (guess > randomNumber) {
+                alert('The number is lower');
+            }
+            else {
+                Swal.fire(
+                    'Good job!',
+                    'You clicked the button!',
+                    'success'
+                );
+                break;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  #output {
+    margin-top: 20px;
+  }
+</style>
+<title>Number Loop</title>
+</head>
+<body>
+  <label for="startNumber">Start Number:</label>
+  <input type="number" id="startNumber">
+  <br><br>
+  <label for="endNumber">End Number:</label>
+  <input type="number" id="endNumber">
+  <br><br>
+  <label for="sentinel">Sentinel Number:</label>
+  <input type="number" id="sentinel">
+  <br><br>
+  <label for="skipDivision">Skip Division:</label>
+  <input type="number" id="skipDivision">
+  <br><br>
+  <button onclick="runLoop()">Run Loop</button>
+  <div id="output"></div>
+
+  <script>
+    function runLoop() {
+      const startNumber = parseInt(document.getElementById("startNumber").value);
+      const endNumber = parseInt(document.getElementById("endNumber").value);
+      const sentinel = parseInt(document.getElementById("sentinel").value);
+      const skipDivision = parseInt(document.getElementById("skipDivision").value);
+      const outputDiv = document.getElementById("output");
+      outputDiv.innerHTML = ""; 
+
+      for (var i = startNumber; i <= endNumber; i++) {
+        if (i % skipDivision === 0) {
+          continue;
+        }
+        
+        outputDiv.innerHTML += i + "<br>";
+
+        if (i === sentinel) {
+          break;
+        }
+      }
+    }
+  </script>
+</body>
+</html>

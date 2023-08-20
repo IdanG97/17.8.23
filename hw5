@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    select,
+    button,
+    input {
+      margin: 10px;
+      padding: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Number Functions</h1>
+  <select id="functionSelect">
+    <option value="isEven">Check Even/Odd</option>
+    <option value="isPositive">Check Positive/Negative</option>
+    <option value="isSingleDigit">Check Single Digit</option>
+    <option value="isDivisibleBy11">Check Divisible by 11</option>
+    <option value="randomBoolean">Random True Or False</option>
+    <option value="checkMyAge">Check My Age</option>
+  </select>
+  <br><br>
+  <input type="number" id="numberInput" placeholder="Enter a number">
+  <br><br>
+  <button onclick="performFunction()">Activate Function</button>
+  <p id="result"></p>
+
+  <script>
+    function performFunction() {
+      const selectedFunction = document.getElementById("functionSelect").value;
+      const number = parseFloat(document.getElementById("numberInput").value);
+      let result = false;
+
+      switch (selectedFunction) {
+        case "isEven":
+          result = isEven(number);
+          break;
+        case "isPositive":
+          result = isPositive(number);
+          break;
+        case "isSingleDigit":
+          result = isSingleDigit(number);
+          break;
+        case "isDivisibleBy11":
+          result = isDivisibleBy11(number);
+          break;
+        case "randomBoolean":
+          result = getRandomTorF();
+          break;
+        case "checkMyAge":
+          result = checkMyAge(number);
+          break;
+        default:
+          result = false;
+      }
+
+      document.getElementById("result").textContent = `Result: ${result}`;
+    }
+
+    function isEven(number) {
+      return number % 2 === 0;
+    }
+
+    function isPositive(number) {
+      return number > 0;
+    }
+
+    function isSingleDigit(number) {
+      return number >= 0 && number < 10;
+    }
+
+    function isDivisibleBy11(number) {
+      return number % 11 === 0;
+    }
+
+    function getRandomTorF() {
+      return Math.random() < 0.5;
+    }
+
+    function checkMyAge(number) {
+      return number === 25;
+    }
+  </script>
+</body>
+
+</html>

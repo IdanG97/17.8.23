@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    position: relative;
+  }
+  .color-square {
+    width: 150px;
+    height: 150px;
+    background-color: #ccc;
+    position: absolute;
+  }
+  #click-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+</style>
+<title>Color Squares</title>
+</head>
+<body>
+<div id="container"></div>
+<br><br>
+<button id="click-button">Show Color Squares</button>
+<script>
+  const container = document.getElementById("container");
+  const clickButton = document.getElementById("click-button");
+
+  function createColorSquare(color) {
+    const square = document.createElement("div");
+    square.className = "color-square";
+    square.style.backgroundColor = color;
+    square.style.left = `${Math.random() * (window.innerWidth - 150)}px`;
+    square.style.top = `${Math.random() * (window.innerHeight - 150)}px`;
+    container.appendChild(square);
+  }
+
+  function showRandomColorSquare() {
+    const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    createColorSquare(randomColor);
+  }
+
+  clickButton.addEventListener("click", () => {
+    setInterval(showRandomColorSquare, 1000);
+  });
+</script>
+</body>
+</html>
